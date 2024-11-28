@@ -1,0 +1,6 @@
+ECHO is on.
+# Ignore node_modules directory
+node_modules/
+
+# Ignore environment file
+.env
