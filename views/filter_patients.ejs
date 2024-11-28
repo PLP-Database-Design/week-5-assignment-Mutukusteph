@@ -1,0 +1,32 @@
+<form method="GET" action="/patients/filter">
+    <label for="first_name">Filter by First Name:</label>
+    <input type="text" name="first_name" id="first_name" required>
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Patient ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (results && results.length > 0) { %>
+            <% results.forEach(row => { %>
+                <tr>
+                    <td><%= row.patient_id %></td>
+                    <td><%= row.first_name %></td>
+                    <td><%= row.last_name %></td>
+                    <td><%= row.date_of_birth %></td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td colspan="4">No patients found with the specified name.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
